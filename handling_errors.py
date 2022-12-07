@@ -1,3 +1,10 @@
+import logging
+
+logging.basicConfig(
+    filename='LOGS/errors.log',
+    level=logging.WARNING,
+)
+
 
 FILE_PATH = "DATA/wombats.txt"
 try:
@@ -6,11 +13,13 @@ try:
             line = raw_line.rstrip()
             print(line)
 except FileNotFoundError as err:
+    logging.exception(err)
     # log the error here ...
     print(err)
 except PermissionError as err:
     print(err)  # or handle some other way
 except Exception as err:
+    logging.exception(err)
     print("Whoa!", err)
 
 with open('DATA/breakfast.txt') as breakfast_in:

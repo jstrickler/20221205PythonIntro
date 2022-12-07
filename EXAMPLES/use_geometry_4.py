@@ -1,4 +1,4 @@
-from geometry import *
+from EXAMPLES.alpha.mathlib.geometry import *  # import everything (unless starting with "_")
 
 a1 = circle_area(8)
 a2 = rectangle_area(10, 12)

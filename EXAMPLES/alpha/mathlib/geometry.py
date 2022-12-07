@@ -39,3 +39,7 @@ def square_area(side):
     :return: Area of square
     """
     return side * 2
+
+def _spam():  # "private"
+    pass
+
