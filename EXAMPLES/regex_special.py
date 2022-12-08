@@ -12,4 +12,4 @@ officia deserunt Y-45 mollit anim id est laborum"""
 pattern = r'(?P<letter>[A-Z])-(?P<number>\d{2,3})'  # Use (?<NAME>...) to name groups
 
 for m in re.finditer(pattern, s):
-    print(m.group('letter'), m.group('number'))  # Use m.group(NAME) to retrieve text
+    print(m.group('letter'), m.group('number'), m.group(2))  # Use m.group(NAME) to retrieve text

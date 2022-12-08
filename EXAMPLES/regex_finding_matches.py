@@ -1,4 +1,3 @@
-
 import re
 
 s = """lorem ipsum M-302 dolor sit amet, consectetur r-99 adipiscing elit, sed do
@@ -11,18 +10,20 @@ officia deserunt Y-45 mollit anim id est laborum"""
 
 pattern = r'[A-Z]-\d{2,3}'  # store pattern in raw string
 
+# does it match?
 if re.search(pattern, s):  # search returns True on match
     print("Found pattern.")
 print()
 
+# retrieve the matche
 m = re.search(pattern, s)  # search actually returns match object
 print(m)
 if m:
-    print("Found:", m.group(0))  # group(0) returns text that was matched by entire expression (or just m.group())
+    print("Found:", m.group())  # group(0) returns text that was matched by entire expression (or just m.group())
 print()
 
 for m in re.finditer(pattern, s):  # iterate over all matches in string:
-    print(m.group())
+    print("match:", m.group())
 print()
 
 matches = re.findall(pattern, s)  # return list of all matches
