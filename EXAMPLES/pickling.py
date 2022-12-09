@@ -21,6 +21,9 @@ data = [  # list of data structures
     airports,
     values,
 ]
+pprint(data)
+print('-' * 60)
+
 
 with open('../TEMP/pickled_data.pic', 'wb') as pic_out:  # open pickle file for writing in binary mode
     pickle.dump(data, pic_out)  # serialize data structures to pickle file

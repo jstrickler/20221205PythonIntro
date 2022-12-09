@@ -5,6 +5,10 @@ Knight = namedtuple('Knight', 'name title color quest comment') # create named t
 
 k = Knight('Bob', 'Sir', 'green', 'whirled peas', 'Who am i?') # create named tuple instance (must specify all fields)
 
+print(f"type(k): {type(k)}")
+print(f"k: {k}")
+
+
 print(k.title, k.name) # can access fields by name...
 print(k[1], k[0]) # ...or index
 print()

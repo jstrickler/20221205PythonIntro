@@ -1,5 +1,9 @@
 import sys
 import requests
+from pprint import pprint
+
+
+from json2xml import json2xml
 
 BASE_URL = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/'  # base URL of resource site
 
@@ -18,8 +22,18 @@ def main(args):
     )  # send HTTP request and get HTTP response
 
     if response.status_code == requests.codes.OK:  # 200?
-        data = response.json()  # convert JSON content to Python data structure
-        for entry in data: # check for results
+        # check to make sure we got json
+        raw_json = response.json()
+        print('-' * 60)
+        print(raw_json)
+        print('-' * 60)
+        print(json2xml.Json2xml(raw_json).to_xml())
+        print('-' * 60)
+        pprint(raw_json)
+        print('-' * 60)
+
+
+        for entry in raw_json: # check for results
             if isinstance(entry, dict):
                 meta = entry.get("meta")
                 if meta:

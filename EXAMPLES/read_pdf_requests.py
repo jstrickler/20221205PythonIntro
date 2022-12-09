@@ -1,5 +1,4 @@
 import sys
-import os
 from subprocess import run  # for running external PDF viewer
 import requests
 
@@ -8,7 +7,7 @@ saved_pdf_file = 'nasa_iss.pdf'  # name of PDF file for saving
 
 response = requests.get(url)  # open the URL
 if response.status_code == requests.codes.OK:  # check status code
-    if response.headers.get('content-type') == 'application/pdf':
+    if response.headers.get('content-type').startswith('application/pdf'):
         with open(saved_pdf_file, 'wb') as pdf_out:  # open local file
             pdf_out.write(response.content)  # write data to a local file in binary mode; response.content is data from URL
 
@@ -19,4 +18,4 @@ if response.status_code == requests.codes.OK:  # check status code
         else:
             cmd = 'acroread ' + saved_pdf_file
 
-        run(cmd.split())  # run requires command to be split into words
+        run(cmd, shell=True)  # run requires command to be split into words

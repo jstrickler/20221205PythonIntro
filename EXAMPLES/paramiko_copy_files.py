@@ -1,10 +1,12 @@
 import os
-import paramiko
 from paramiko import Transport, SFTPClient
 
 from getpass import getpass  # best way if running script by a human
 password = os.getenv("REMOTE_PASSWORD")
 # or open file...
+
+password = getpass("Enter the password: ")
+
 
 REMOTE_DIR = 'text_files'
 
@@ -19,7 +21,7 @@ with Transport(('localhost', 22)) as transport:  # create paramiko Transport ins
         sftp.rmdir(REMOTE_DIR)
     except OSError as err:
         print(err)
-    sftp.mkdir(REMOTE_DIR)
+    # sftp.mkdir(REMOTE_DIR)
 
     # sftp.put(local-file)
     # sftp.put(local-file, remote-file)

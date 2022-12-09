@@ -11,8 +11,10 @@ zip_in.extract('parrot.txt')  # Extract member
 
 # creating a zip file
 file_names = ["parrot.txt", "tyger.txt", "knights.txt", "alice.txt", "poe_sonnet.txt", "spam.txt"]
+folder_name = "../DATA"
 zip_out = ZipFile("example.zip", mode="w", compression=ZIP_DEFLATED)  # Create new zip file
 for file_name in file_names:
-    file_path = os.path.join("../DATA", file_name)
+    file_path = os.path.join(folder_name, file_name)
     print("adding {}".format(file_path))
     zip_out.write(file_path, file_name)  # Add member to zip file
+

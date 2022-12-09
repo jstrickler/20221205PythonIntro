@@ -20,6 +20,7 @@ date_strings = [  # list of assorted date strings
     'Febrifuge 1, 2021',
     '    2/1/21',
     'abc 2/1/21',
+    'March 34, 1925',
 ]
 
 for date_string in date_strings:
@@ -28,4 +29,4 @@ for date_string in date_strings:
         dt = parser.parse(date_string)  # parse with dateutil.parser.parse() -- doesn't need a template
         print(dt)
     except ValueError as err:
-        print(err)
+        print("*ERROR*", err)
